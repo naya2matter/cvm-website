@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+/* Smooth scrolling for anchor navigation */
+html { scroll-behavior: smooth; }
+
+/* Offset anchored sections so fixed navbar doesn't cover content */
+:root { --nav-scroll-offset: 6rem; }
+[id] { scroll-margin-top: var(--nav-scroll-offset); }

@@ -1,41 +1,24 @@
-import React from "react";
+import { FooterData } from "../footer/footer.types";
+import FooterBrand from "../footer/FooterBrand";
+import FooterContact from "../footer/FooterContact";
+import FooterSocial from "../footer/FooterSocial";
 
-export const Footer = () => {
+interface Props {
+  data: FooterData;
+}
+
+export default function Footer({ data }: Props) {
   return (
-    <div className=" min-h-[295px] w-full bg-[#F68620] flex justify-between items-center gap-[46px] p-[46px] text-[#1E1E1E]">
-      <div className=" flex flex-col items-center justify-center gap-[18px] ">
-        <div className=" text-center flex items-center gap-[10px]">
-          <img
-            src="/img/blacklogo.png"
-            alt="logo"
-            className=" h-[35.447208404541016px] w-[56.77776336669922px] text-[#1E1E1E]"
-          />
-          <p>Commercial Vision Group</p>
+    <footer className="bg-[#F68620] text-[#1E1E1E] p-11.5 min-h-[295px]  ">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="lg:w-[651px]">
+          <FooterBrand brand={data.brand} />
         </div>
-        <p className=" pt-[15px] w-full text-center">
-          © 2026 CVM Construction All rights reserved.
-        </p>
-      </div>
-
-      <div>
-        <div>
-          <h3 className=" text-[18px] font-semibold mb-[10px]">Social media</h3>
-          <ul className=" flex flex-col gap-[10px]">
-            <li className=" cursor-pointer hover:text-[#1E1E1E] transition-colors duration-200">
-              <img src="img/insta.png" alt="insta" />
-            </li>
-            <li className=" cursor-pointer hover:text-[#1E1E1E] transition-colors duration-200">
-              <img src="img/in.png" alt="linkedin" />
-            </li>
-            <li className=" cursor-pointer hover:text-[#1E1E1E] transition-colors duration-200">
-              <img src="img/facebook.png" alt="facebook" />
-            </li>
-            <li className=" cursor-pointer hover:text-[#1E1E1E] transition-colors duration-200">
-                <img src="img/twitter.png" alt="youtupe" />
-            </li>
-          </ul>
+        <div className="flex flex-col items-center justify-center gap-[38px] lg:w-[651px]">
+          <FooterSocial socialMedia={data.socialMedia} />
+          <FooterContact contact={data.contact} />
         </div>
       </div>
-    </div>
+    </footer>
   );
-};
+}
